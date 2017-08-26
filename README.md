@@ -31,7 +31,7 @@ After change in database tables one have to re-generate jOOQ model.
 To re-generate jOOQ model:
 
 ```bash
-$ mvn liquibase:update
+$ mvn clean process-resources liquibase:update
 $ rm -rf gensrc
 $ mvn clean generate-sources -Pjooq-generate
 ```
