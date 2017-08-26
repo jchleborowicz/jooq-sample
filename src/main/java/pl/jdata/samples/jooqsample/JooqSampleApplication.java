@@ -1,5 +1,6 @@
 package pl.jdata.samples.jooqsample;
 
+import org.jooq.conf.RenderNameStyle;
 import org.jooq.conf.Settings;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,7 @@ public class JooqSampleApplication {
     @Bean
     public Settings settings() {
         return new Settings()
+                .withRenderNameStyle(RenderNameStyle.AS_IS)
                 .withRenderFormatted(true);
     }
 
