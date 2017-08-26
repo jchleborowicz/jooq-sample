@@ -1,7 +1,10 @@
 # jOOQ sample
 Sample project for jOOQ testing.
 
-Uses:
+The project contains all the setup needed for spring boot, jOOQ, test code generation and 
+thus makes it easier to start with jOOQ using Spring.
+
+Project uses:
 * spring boot - https://projects.spring.io/spring-boot/
 * liquibase - http://www.liquibase.org/
 * postgres database - for main source code - https://www.postgresql.org/
@@ -34,3 +37,9 @@ $ mvn clean generate-sources -Pjooq-generate
 ```
 
 Afterwards one have to manually add/remove jOOQ model files to git.
+
+# Sample code
+
+Sample code using jOOQ is placed in class pl.jdata.samples.jooqsample.JooqUsageSample
+
+Here you can play with it.
