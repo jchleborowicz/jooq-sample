@@ -41,5 +41,3 @@ Afterwards one have to manually add/remove jOOQ model files to git.
 # Sample code
 
 Sample code using jOOQ is placed in class pl.jdata.samples.jooqsample.JooqUsageSample
-
-Here you can play with it.
