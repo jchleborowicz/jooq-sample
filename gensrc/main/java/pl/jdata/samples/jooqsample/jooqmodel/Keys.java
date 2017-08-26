@@ -6,11 +6,20 @@ package pl.jdata.samples.jooqsample.jooqmodel;
 
 import javax.annotation.Generated;
 
+import org.jooq.ForeignKey;
 import org.jooq.UniqueKey;
 import org.jooq.impl.AbstractKeys;
 
-import pl.jdata.samples.jooqsample.jooqmodel.tables.SystemUser;
-import pl.jdata.samples.jooqsample.jooqmodel.tables.records.SystemUserRecord;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.Author;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.Book;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.BookStore;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.BookToBookStore;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.Language;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.records.AuthorRecord;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.records.BookRecord;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.records.BookStoreRecord;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.records.BookToBookStoreRecord;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.records.LanguageRecord;
 
 
 /**
@@ -36,18 +45,37 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final UniqueKey<SystemUserRecord> PK_USER = UniqueKeys0.PK_USER;
+    public static final UniqueKey<AuthorRecord> AUTHOR_PKEY = UniqueKeys0.AUTHOR_PKEY;
+    public static final UniqueKey<BookRecord> BOOK_PKEY = UniqueKeys0.BOOK_PKEY;
+    public static final UniqueKey<BookStoreRecord> BOOK_STORE_NAME_KEY = UniqueKeys0.BOOK_STORE_NAME_KEY;
+    public static final UniqueKey<BookToBookStoreRecord> BOOK_TO_BOOK_STORE_PKEY = UniqueKeys0.BOOK_TO_BOOK_STORE_PKEY;
+    public static final UniqueKey<LanguageRecord> LANGUAGE_PKEY = UniqueKeys0.LANGUAGE_PKEY;
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final ForeignKey<BookRecord, AuthorRecord> BOOK__FK_BOOK_AUTHOR = ForeignKeys0.BOOK__FK_BOOK_AUTHOR;
+    public static final ForeignKey<BookRecord, LanguageRecord> BOOK__FK_BOOK_LANGUAGE = ForeignKeys0.BOOK__FK_BOOK_LANGUAGE;
+    public static final ForeignKey<BookToBookStoreRecord, BookStoreRecord> BOOK_TO_BOOK_STORE__FK_B2BS_BOOK_STORE = ForeignKeys0.BOOK_TO_BOOK_STORE__FK_B2BS_BOOK_STORE;
+    public static final ForeignKey<BookToBookStoreRecord, BookRecord> BOOK_TO_BOOK_STORE__FK_B2BS_BOOK = ForeignKeys0.BOOK_TO_BOOK_STORE__FK_B2BS_BOOK;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
     // -------------------------------------------------------------------------
 
     private static class UniqueKeys0 extends AbstractKeys {
-        public static final UniqueKey<SystemUserRecord> PK_USER = createUniqueKey(SystemUser.SYSTEM_USER, "pk_user", SystemUser.SYSTEM_USER.ID);
+        public static final UniqueKey<AuthorRecord> AUTHOR_PKEY = createUniqueKey(Author.AUTHOR, "author_pkey", Author.AUTHOR.ID);
+        public static final UniqueKey<BookRecord> BOOK_PKEY = createUniqueKey(Book.BOOK, "book_pkey", Book.BOOK.ID);
+        public static final UniqueKey<BookStoreRecord> BOOK_STORE_NAME_KEY = createUniqueKey(BookStore.BOOK_STORE, "book_store_name_key", BookStore.BOOK_STORE.NAME);
+        public static final UniqueKey<BookToBookStoreRecord> BOOK_TO_BOOK_STORE_PKEY = createUniqueKey(BookToBookStore.BOOK_TO_BOOK_STORE, "book_to_book_store_pkey", BookToBookStore.BOOK_TO_BOOK_STORE.NAME, BookToBookStore.BOOK_TO_BOOK_STORE.BOOK_ID);
+        public static final UniqueKey<LanguageRecord> LANGUAGE_PKEY = createUniqueKey(Language.LANGUAGE, "language_pkey", Language.LANGUAGE.ID);
+    }
+
+    private static class ForeignKeys0 extends AbstractKeys {
+        public static final ForeignKey<BookRecord, AuthorRecord> BOOK__FK_BOOK_AUTHOR = createForeignKey(pl.jdata.samples.jooqsample.jooqmodel.Keys.AUTHOR_PKEY, Book.BOOK, "book__fk_book_author", Book.BOOK.AUTHOR_ID);
+        public static final ForeignKey<BookRecord, LanguageRecord> BOOK__FK_BOOK_LANGUAGE = createForeignKey(pl.jdata.samples.jooqsample.jooqmodel.Keys.LANGUAGE_PKEY, Book.BOOK, "book__fk_book_language", Book.BOOK.LANGUAGE_ID);
+        public static final ForeignKey<BookToBookStoreRecord, BookStoreRecord> BOOK_TO_BOOK_STORE__FK_B2BS_BOOK_STORE = createForeignKey(pl.jdata.samples.jooqsample.jooqmodel.Keys.BOOK_STORE_NAME_KEY, BookToBookStore.BOOK_TO_BOOK_STORE, "book_to_book_store__fk_b2bs_book_store", BookToBookStore.BOOK_TO_BOOK_STORE.NAME);
+        public static final ForeignKey<BookToBookStoreRecord, BookRecord> BOOK_TO_BOOK_STORE__FK_B2BS_BOOK = createForeignKey(pl.jdata.samples.jooqsample.jooqmodel.Keys.BOOK_PKEY, BookToBookStore.BOOK_TO_BOOK_STORE, "book_to_book_store__fk_b2bs_book", BookToBookStore.BOOK_TO_BOOK_STORE.BOOK_ID);
     }
 }

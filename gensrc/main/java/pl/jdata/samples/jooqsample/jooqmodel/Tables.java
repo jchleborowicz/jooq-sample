@@ -6,7 +6,11 @@ package pl.jdata.samples.jooqsample.jooqmodel;
 
 import javax.annotation.Generated;
 
-import pl.jdata.samples.jooqsample.jooqmodel.tables.SystemUser;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.Author;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.Book;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.BookStore;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.BookToBookStore;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.Language;
 
 
 /**
@@ -23,7 +27,27 @@ import pl.jdata.samples.jooqsample.jooqmodel.tables.SystemUser;
 public class Tables {
 
     /**
-     * The table <code>public.system_user</code>.
+     * The table <code>public.author</code>.
      */
-    public static final SystemUser SYSTEM_USER = pl.jdata.samples.jooqsample.jooqmodel.tables.SystemUser.SYSTEM_USER;
+    public static final Author AUTHOR = pl.jdata.samples.jooqsample.jooqmodel.tables.Author.AUTHOR;
+
+    /**
+     * The table <code>public.book</code>.
+     */
+    public static final Book BOOK = pl.jdata.samples.jooqsample.jooqmodel.tables.Book.BOOK;
+
+    /**
+     * The table <code>public.book_store</code>.
+     */
+    public static final BookStore BOOK_STORE = pl.jdata.samples.jooqsample.jooqmodel.tables.BookStore.BOOK_STORE;
+
+    /**
+     * The table <code>public.book_to_book_store</code>.
+     */
+    public static final BookToBookStore BOOK_TO_BOOK_STORE = pl.jdata.samples.jooqsample.jooqmodel.tables.BookToBookStore.BOOK_TO_BOOK_STORE;
+
+    /**
+     * The table <code>public.language</code>.
+     */
+    public static final Language LANGUAGE = pl.jdata.samples.jooqsample.jooqmodel.tables.Language.LANGUAGE;
 }

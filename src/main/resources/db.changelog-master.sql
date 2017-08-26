@@ -1,13 +1,43 @@
 --liquibase formatted sql
 --changeset jch:001
 
-create table system_user (
-  id int not null,
-  username varchar(32) not null,
-  constraint pk_user primary key (id)
+-- this is a sample database as presented on https://www.jooq.org/doc/3.9/manual-single-page/#sample-database
+CREATE TABLE language (
+  id              INT           NOT NULL PRIMARY KEY,
+  cd              CHAR(2)       NOT NULL,
+  description     VARCHAR(50)
 );
 
---changeset jch:002
-INSERT INTO system_user (id, username) VALUES (1, 'johny');
-INSERT INTO system_user (id, username) VALUES (2, 'jack');
-INSERT INTO system_user (id, username) VALUES (3, 'jim');
+CREATE TABLE author (
+  id              INT     NOT NULL PRIMARY KEY,
+  first_name      VARCHAR(50),
+  last_name       VARCHAR(50)  NOT NULL,
+  date_of_birth   DATE,
+  year_of_birth   INT,
+  distinguished   SMALLINT
+);
+
+CREATE TABLE book (
+  id              INT     NOT NULL PRIMARY KEY,
+  author_id       INT     NOT NULL,
+  title           VARCHAR(400) NOT NULL,
+  published_in    INT     NOT NULL,
+  language_id     INT     NOT NULL,
+
+  CONSTRAINT fk_book_author     FOREIGN KEY (author_id)   REFERENCES author(id),
+  CONSTRAINT fk_book_language   FOREIGN KEY (language_id) REFERENCES language(id)
+);
+
+CREATE TABLE book_store (
+  name            VARCHAR(400) NOT NULL UNIQUE
+);
+
+CREATE TABLE book_to_book_store (
+  name            VARCHAR(400) NOT NULL,
+  book_id         INTEGER       NOT NULL,
+  stock           INTEGER,
+
+  PRIMARY KEY(name, book_id),
+  CONSTRAINT fk_b2bs_book_store FOREIGN KEY (name)        REFERENCES book_store (name) ON DELETE CASCADE,
+  CONSTRAINT fk_b2bs_book       FOREIGN KEY (book_id)     REFERENCES book (id)         ON DELETE CASCADE
+);

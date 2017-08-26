@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
-import static pl.jdata.samples.jooqsample.jooqmodel.tables.SystemUser.SYSTEM_USER;
+import static pl.jdata.samples.jooqsample.jooqmodel.Tables.BOOK;
 
 @Component
 @DependsOn("liquibase")
@@ -24,7 +24,8 @@ public class JooqUsageSample {
                 .fetch();
 
         this.dsl.select()
-                .from(SYSTEM_USER)
+                .from(BOOK)
                 .fetch();
     }
+
 }

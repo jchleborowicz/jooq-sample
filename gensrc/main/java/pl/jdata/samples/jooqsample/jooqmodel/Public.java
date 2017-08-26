@@ -14,7 +14,11 @@ import org.jooq.Catalog;
 import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
 
-import pl.jdata.samples.jooqsample.jooqmodel.tables.SystemUser;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.Author;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.Book;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.BookStore;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.BookToBookStore;
+import pl.jdata.samples.jooqsample.jooqmodel.tables.Language;
 
 
 /**
@@ -30,7 +34,7 @@ import pl.jdata.samples.jooqsample.jooqmodel.tables.SystemUser;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Public extends SchemaImpl {
 
-    private static final long serialVersionUID = 775125906;
+    private static final long serialVersionUID = -538067474;
 
     /**
      * The reference instance of <code>public</code>
@@ -38,9 +42,29 @@ public class Public extends SchemaImpl {
     public static final Public PUBLIC = new Public();
 
     /**
-     * The table <code>public.system_user</code>.
+     * The table <code>public.author</code>.
      */
-    public final SystemUser SYSTEM_USER = pl.jdata.samples.jooqsample.jooqmodel.tables.SystemUser.SYSTEM_USER;
+    public final Author AUTHOR = pl.jdata.samples.jooqsample.jooqmodel.tables.Author.AUTHOR;
+
+    /**
+     * The table <code>public.book</code>.
+     */
+    public final Book BOOK = pl.jdata.samples.jooqsample.jooqmodel.tables.Book.BOOK;
+
+    /**
+     * The table <code>public.book_store</code>.
+     */
+    public final BookStore BOOK_STORE = pl.jdata.samples.jooqsample.jooqmodel.tables.BookStore.BOOK_STORE;
+
+    /**
+     * The table <code>public.book_to_book_store</code>.
+     */
+    public final BookToBookStore BOOK_TO_BOOK_STORE = pl.jdata.samples.jooqsample.jooqmodel.tables.BookToBookStore.BOOK_TO_BOOK_STORE;
+
+    /**
+     * The table <code>public.language</code>.
+     */
+    public final Language LANGUAGE = pl.jdata.samples.jooqsample.jooqmodel.tables.Language.LANGUAGE;
 
     /**
      * No further instances allowed
@@ -67,6 +91,10 @@ public class Public extends SchemaImpl {
 
     private final List<Table<?>> getTables0() {
         return Arrays.<Table<?>>asList(
-            SystemUser.SYSTEM_USER);
+            Author.AUTHOR,
+            Book.BOOK,
+            BookStore.BOOK_STORE,
+            BookToBookStore.BOOK_TO_BOOK_STORE,
+            Language.LANGUAGE);
     }
 }
