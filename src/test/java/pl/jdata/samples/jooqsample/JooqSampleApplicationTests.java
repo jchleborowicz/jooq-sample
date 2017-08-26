@@ -1,16 +1,18 @@
-package pl.jch.tests.jooq.jooqtest;
+package pl.jdata.samples.jooqsample;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class JooqTestApplicationTests {
+@ActiveProfiles("test")
+public class JooqSampleApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
 }

@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>pl.jch.tests.jooq</groupId>
-    <artifactId>jooq-test</artifactId>
+    <groupId>pl.jdata.samples</groupId>
+    <artifactId>jooq-sample</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>jooq-test</name>
-    <description>Demo project for Spring Boot</description>
+    <name>jooq-sample</name>
+    <description>Sample project for jOOQ</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -23,15 +23,16 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
 
-        <base-package-name>pl.jch.tests.jooq.jooqtest</base-package-name>
+        <base-package-name>pl.jdata.samples.jooqsample</base-package-name>
 
         <!-- database settings used by liquibase and jooq source code generator -->
         <database.url>jdbc:postgresql://localhost:5432/jooq_test</database.url>
         <database.username>postgres</database.username>
-        <database.password>abcdef</database.password>
+        <database.password>postgres</database.password>
     </properties>
 
     <dependencies>
+        <!-- Compile -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jooq</artifactId>
@@ -41,12 +42,14 @@
             <artifactId>liquibase-core</artifactId>
         </dependency>
 
+        <!-- Runtime -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Test -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
