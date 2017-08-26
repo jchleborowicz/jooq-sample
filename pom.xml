@@ -26,9 +26,11 @@
         <base-package-name>pl.jdata.samples.jooqsample</base-package-name>
 
         <!-- database settings used by liquibase and jooq source code generator -->
-        <database.url>jdbc:postgresql://localhost:5432/jooq_test</database.url>
+        <database.url>jdbc:postgresql://localhost:5432/jooq_sample</database.url>
         <database.username>postgres</database.username>
         <database.password>postgres</database.password>
+
+        <liquibase-master-changelog-file>src/main/resources/db.changelog-master.sql</liquibase-master-changelog-file>
     </properties>
 
     <dependencies>
@@ -94,7 +96,7 @@
                     <url>${database.url}</url>
                     <username>${database.username}</username>
                     <password>${database.password}</password>
-                    <changeLogFile>src/main/resources/db.changelog-master.sql</changeLogFile>
+                    <changeLogFile>${liquibase-master-changelog-file}</changeLogFile>
                 </configuration>
             </plugin>
         </plugins>
@@ -142,7 +144,7 @@
                                     <inputSchema>public</inputSchema>
                                 </database>
                                 <target>
-                                    <packageName>${base-package-name}</packageName>
+                                    <packageName>${base-package-name}.jooqmodel</packageName>
                                     <directory>${basedir}/gensrc/main/java</directory>
                                 </target>
                             </generator>

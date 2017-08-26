@@ -1,11 +1,15 @@
 package pl.jdata.samples.jooqsample;
 
 import org.jooq.DSLContext;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
+import static pl.jdata.samples.jooqsample.jooqmodel.tables.SystemUser.SYSTEM_USER;
+
 @Component
+@DependsOn("liquibase")
 public class JooqUsageSample {
 
     private final DSLContext dsl;
@@ -17,6 +21,10 @@ public class JooqUsageSample {
     @PostConstruct
     public void performTesting() {
         this.dsl.selectOne()
+                .fetch();
+
+        this.dsl.select()
+                .from(SYSTEM_USER)
                 .fetch();
     }
 }
