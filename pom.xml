@@ -30,7 +30,7 @@
         <database.username>postgres</database.username>
         <database.password>postgres</database.password>
 
-        <liquibase-master-changelog-file>db.changelog-master.sql</liquibase-master-changelog-file>
+        <liquibase-master-changelog-file>db.changelog/db.changelog-master.xml</liquibase-master-changelog-file>
     </properties>
 
     <dependencies>

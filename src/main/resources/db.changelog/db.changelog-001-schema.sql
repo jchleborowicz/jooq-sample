@@ -1,7 +1,8 @@
 --liquibase formatted sql
 --changeset jch:001
 
--- this is a sample database as presented on https://www.jooq.org/doc/3.9/manual-single-page/#sample-database
+-- A sample database as presented on https://www.jooq.org/doc/3.9/manual-single-page/#sample-database
+
 CREATE TABLE language (
   id              INT           NOT NULL PRIMARY KEY,
   cd              CHAR(2)       NOT NULL,
