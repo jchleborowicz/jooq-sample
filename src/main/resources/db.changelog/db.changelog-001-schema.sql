@@ -42,3 +42,7 @@ CREATE TABLE book_to_book_store (
   CONSTRAINT fk_b2bs_book_store FOREIGN KEY (name)        REFERENCES book_store (name) ON DELETE CASCADE,
   CONSTRAINT fk_b2bs_book       FOREIGN KEY (book_id)     REFERENCES book (id)         ON DELETE CASCADE
 );
+
+CREATE SEQUENCE laguage_seq START WITH 10;
+CREATE SEQUENCE author_seq START WITH 10;
+CREATE SEQUENCE book_seq START WITH 10;
